@@ -11,10 +11,10 @@ int splitFile(char *path, int count, char *savepath, char *savename)
     }
     else
     {
-        fseek(F, 0, SEEK_END);      //½«ÎÄ¼şÖ¸ÕëÒÆ¶¯µ½ÎÄ¼şÄ©Î²
-        int length = ftell(F);      //¼ÆËãÎÄ¼şÖ¸Õëµ½ÎÄ¼ş¿ªÍ·µÄ×Ö½ÚÊı£¬¼´¾ÍÊÇÎÄ¼ş´óĞ¡
-        int yushu = length % count; //ÓàÊı
-        int size = length / count;  //Ç°Ãæcount-1·İÃ¿Ò»·Ö´óĞ¡Îªsize£¬×îºóÒ»·İÎªsize + yushu
+        fseek(F, 0, SEEK_END);      //å°†æ–‡ä»¶æŒ‡é’ˆç§»åŠ¨åˆ°æ–‡ä»¶æœ«å°¾
+        int length = ftell(F);      //è®¡ç®—æ–‡ä»¶æŒ‡é’ˆåˆ°æ–‡ä»¶å¼€å¤´çš„å­—èŠ‚æ•°ï¼Œå³å°±æ˜¯æ–‡ä»¶å¤§å°
+        int yushu = length % count; //ä½™æ•°
+        int size = length / count;  //å‰é¢count-1ä»½æ¯ä¸€åˆ†å¤§å°ä¸ºsizeï¼Œæœ€åä¸€ä»½ä¸ºsize + yushu
         for (i = 1; i <= count; i++)
         {
             char savefile[100];
@@ -32,7 +32,7 @@ int splitFile(char *path, int count, char *savepath, char *savename)
                 fseek(F, (i - 1) * size, SEEK_SET);
                 if (i == count)
                 {
-                    for (j = 0; j <= size + yushu; j++)
+                    for (j = 0; j < size + yushu; j++)
                     {
                         c = fgetc(F);
                         fputc(c, P);
