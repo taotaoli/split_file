@@ -1,9 +1,5 @@
 # split_file
 This code is use to split big file
-
-Copyright (C) 2019-2021
-
- - taotaoli <ltt124356871@126.com>
  
 What it is
 ----------
